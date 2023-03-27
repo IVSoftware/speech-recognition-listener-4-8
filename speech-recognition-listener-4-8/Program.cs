@@ -16,7 +16,7 @@ namespace speech_recognition_listener_4_8
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SpeechForm());
+            Application.Run(new MainForm());
         }
     }
 }

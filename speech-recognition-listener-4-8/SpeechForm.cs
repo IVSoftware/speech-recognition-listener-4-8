@@ -10,6 +10,7 @@ namespace speech_recognition_listener_4_8
         public SpeechForm()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterParent;
 
             // https://learn.microsoft.com/en-us/dotnet/api/system.speech.recognition.speechrecognizer.loadgrammar?view=netframework-4.8.1
             SRE = new SpeechRecognitionEngine();
@@ -21,12 +22,14 @@ namespace speech_recognition_listener_4_8
             SRE.SetInputToDefaultAudioDevice();
             SRE.RecognizeAsync(RecognizeMode.Multiple);
         }
-
-        protected async override void OnHandleCreated(EventArgs e)
+        protected override void OnVisibleChanged(EventArgs e)
         {
-            base.OnHandleCreated(e);
-            await Task.Delay(TimeSpan.FromSeconds(5));
-            Application.Exit();
+            base.OnVisibleChanged(e);
+            if(Visible)
+            {
+                textBox1.Text = "Listening...";
+                textBox1.Select(0, 0);
+            }
         }
 
         private void onSpeechRecognized(object sender, SpeechRecognizedEventArgs e)
