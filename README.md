@@ -1,5 +1,8 @@
 Based on your comment, I would suggest that the speech recognition form be contained by a main form. This would allow the speech form to be re-triggered the way you mentioned. This might not be the _exact_ behavior you want, but I hope it will serve as a starting point.
 
+The [Application.Run](https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.application.run?view=windowsdesktop-7.0) method should be called one time only in the program.cs entry point to start the application's main message loop.
+***
+
 [![main form][1]][1]
 
     internal static class Program
